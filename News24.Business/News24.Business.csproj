@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+	
+	<ItemGroup>
+		<PackageReference Include="AutoMapper" Version="[11.0.1]" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\News24.Data\News24.Data.csproj" />
+		<ProjectReference Include="..\News24.DTOs\News24.DTOs.csproj" />
+	</ItemGroup>
+
+</Project>
