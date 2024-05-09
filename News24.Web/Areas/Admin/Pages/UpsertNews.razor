@@ -1,5 +1,7 @@
-﻿@page "/newses/add-news"
-@page "/newses/edit-news/{Id:int}"
+﻿@page "/admin/add-news"
+@page "/admin/edit-news/{Id:int}"
+<PageTitle>@Title خبر </PageTitle>
+
 @using News24.DTOs.Newses
 @using News24.Business.Repository.IRepository
 @using News24.Data.Entities.NewsEntities
@@ -147,7 +149,7 @@
             throw;
         }
 
-        NavigationManager.NavigateTo("newses");
+        NavigationManager.NavigateTo("admin");
     }
 
     private async Task HandleImageUpload(InputFileChangeEventArgs e)

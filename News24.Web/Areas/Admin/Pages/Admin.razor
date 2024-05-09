@@ -1,4 +1,5 @@
-﻿@page "/newses"
+﻿@page "/admin"
+<PageTitle> پنل مدیریت</PageTitle>
 @using News24.Common
 @using News24.Business.Repository.IRepository
 @using News24.DTOs.Newses
@@ -11,7 +12,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <NavLink href="newses/add-news" class="btn btn-info form-control">
+            <NavLink href="admin/add-news" class="btn btn-info form-control">
                 ثبت خبر جدید
             </NavLink>
             <div class="post_content">
@@ -40,7 +41,7 @@
                                         @news.ShortDescription
                                     </td>
                                     <td>
-                                        <NavLink href="@($"/newses/edit-news/{news.NewsId}")" class="btn btn-warning btn-block">ویرایش</NavLink>
+                                        <NavLink href="@($"/admin/edit-news/{news.NewsId}")" class="btn btn-warning btn-block">ویرایش</NavLink>
                                         <br />
                                         <button class="btn btn-danger btn-block" @onclick="() => HandleDelete(news.NewsId)">حذف خبر</button>
                                     </td>
@@ -56,11 +57,6 @@
                     </tbody>
                 </table>
             </div>
-        </div>
-        <div class="col-md-12">
-            <p>
-                IsConfirm : @IsConfirm
-            </p>
         </div>
     </div>
 </div>
@@ -105,31 +101,4 @@
         await JsRuntime.InvokeVoidAsync("hideConfirmationModal");
         IsProcessing = false;
     }
-
-
-    /*private async Task TestConfirmBox()
-        {
-        IsConfirm = await JsRuntime.InvokeAsync<bool>("confirm", ConfirmMessage);
-    }
-
-    private async Task TestSuccess()
-        {
-        await JsRuntime.ToastrSuccess("این یک پیغام موفقیت می باشد");
-    }
-
-    private async Task TestError()
-        {
-        await JsRuntime.ToastrError("این یک پیغام خطا می باشد");
-    }
-
-    private async Task SwalSuccess()
-        {
-        await JsRuntime.InvokeVoidAsync("ShowSwal", "success", "عملیات مورد نظر با موفقیت انجام شد");
-    }
-
-    private async Task SwalError()
-        {
-        await JsRuntime.InvokeVoidAsync("ShowSwal", "error", "عملیات مورد نظر با شکست مواجه شد");
-    }*/
-
 }

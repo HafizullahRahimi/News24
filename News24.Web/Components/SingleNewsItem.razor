@@ -1,7 +1,7 @@
 ﻿@using News24.DTOs.Newses
 <div class="col-md-3">
     <div class="post-box">
-        <a href="#">
+         <NavLink href="@($"/newses/{News.NewsId}")">
             <figure>
                 <img src="/images/@News.ImageName" alt="">
                 <figcaption class="meta-fig">
@@ -20,10 +20,10 @@
                     @News.ShortDescription
                 </p>
                 <div class="text-rigt">
-                    <a href="#">ادامه ...</a>
+                    <a href="@($"/newses/{News.NewsId}")">ادامه ...</a>
                 </div>
             </div>
-        </a>
+        </NavLink>
     </div>
 </div>
 
