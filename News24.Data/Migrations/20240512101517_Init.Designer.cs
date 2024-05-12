@@ -12,7 +12,7 @@ using News24.Data.Context;
 namespace News24.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240508124902_Init")]
+    [Migration("20240512101517_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -61,15 +61,15 @@ namespace News24.Data.Migrations
                         },
                         new
                         {
-                            Id = "2d13c85c-0c08-4cac-b7a9-8ab67ef92833",
-                            ConcurrencyStamp = "2d13c85c-0c08-4cac-b7a9-8ab67ef92833",
+                            Id = "f18a78f4-d04b-4db4-9bf8-562ee5657057",
+                            ConcurrencyStamp = "f18a78f4-d04b-4db4-9bf8-562ee5657057",
                             Name = "Customer",
                             NormalizedName = "CUSTOMER"
                         },
                         new
                         {
-                            Id = "a17c8b7b-c6ae-4953-be20-af074b0ec512",
-                            ConcurrencyStamp = "a17c8b7b-c6ae-4953-be20-af074b0ec512",
+                            Id = "0c30ee7c-e91f-4c57-bdc2-9df10a09b618",
+                            ConcurrencyStamp = "0c30ee7c-e91f-4c57-bdc2-9df10a09b618",
                             Name = "Employee",
                             NormalizedName = "EMPLOYEE"
                         });
@@ -169,15 +169,15 @@ namespace News24.Data.Migrations
                         {
                             Id = "0f8fad5b-d9cb-469f-a165-70867728950e",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "a04c6c2f-d7ce-48ec-ae00-8d3b36949bab",
+                            ConcurrencyStamp = "764a52b5-c757-4f66-a1ed-7625d0476822",
                             Email = "admin@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@GMAIL.COM",
                             NormalizedUserName = "ADMIN@GMAIL.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEGbU9FL/ijFhTHTe7g+52qvQRF3/tJaEy6j3ZTkh/7S+rPtcyR0Pp8PSkiHgJ67mug==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEP3vSxRYpUKuj439zrIu8tWxflfr7sHPlbgmubpKkOl9A+mRH8xCYw2vKJE4jodw5g==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "1f73075c-d169-4a6e-a391-cc042811c87f",
+                            SecurityStamp = "27f87ae3-667f-4b28-87c0-52b056e919de",
                             TwoFactorEnabled = false,
                             UserName = "admin@gmail.com"
                         });
@@ -211,12 +211,10 @@ namespace News24.Data.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderKey")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
@@ -260,12 +258,10 @@ namespace News24.Data.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");

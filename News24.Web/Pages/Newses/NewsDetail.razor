@@ -22,7 +22,7 @@
                 <div class="posts_meta text-center">
                     <span><i class="fa fa-comment-o"></i> 25 نظر</span>
                     <span><i class="fa fa-archive"></i> اقتصادی</span>
-                    <span><i class="fa fa-calendar"></i> @NewsDto.CreateDate.ToString("yyyy/MM/dd", new CultureInfo("fa-IR"))</span>
+                    <span><i class="fa fa-calendar"></i> @NewsDto.CreateDate.ToShamsi()</span>
                 </div>
                 <div class="post_content">
                     <h4>| عنوان مطلب در این قسمت</h4>
@@ -32,27 +32,6 @@
                         @((MarkupString) NewsDto.Description)
                     </div>
                 </div>
-                @*<div class="comments_form">
-                        <h5>دیدگاه شما </h5>
-                        <form>
-                            <div class="form-row">
-                                <div class="col-md-6">
-                                    <input type="text" class="form-control" placeholder="نام شما">
-                                </div>
-                                <div class="col-md-6">
-                                    <input type="email" class="form-control" placeholder="ایمیل">
-                                </div>
-                                <div class="col-md-12">
-                                    <textarea class="form-control" placeholder="نظر شما ..."></textarea>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="text-left">
-                                        <button class="btn btn-primary">ثبت نظر</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>*@
             </div>
         </div>
     </div>

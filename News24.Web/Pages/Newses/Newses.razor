@@ -24,37 +24,7 @@
             {
                 @foreach (var news in Filter.Newses)
                 {
-                    <div class="col-md-3">
-                        <div class="post-box">
-                            <NavLink href="@($"/newses/{news.NewsId}")">
-                                <figure>
-                                    <img src="/images/@news.ImageName" alt="">
-                                    <figcaption class="meta-fig">
-                                        <span><i class="fa fa-clock-o"></i> 99/3/20</span>&nbsp;
-                                        <span><i class="fa fa-comment-o"></i> 12</span>
-                                    </figcaption>
-                                    <figcaption class="view">
-                                        <span>بخش ویژه</span>
-                                        <span>انجمن</span>
-                                        <span>اتاق خبر</span>
-                                    </figcaption>
-                                </figure>
-                            </NavLink>
-                            <div class="text-p">
-                                <NavLink href="@($"/newses/{news.NewsId}")">
-                                    <h5>@news.Title</h5>
-                                    <p>
-                                        @news.ShortDescription
-                                    </p>
-                                </NavLink>
-                                <div class="text-rigt">
-                                    <a href="#">
-                                    </a><a href="#">ادامه ...</a>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
+                    <SingleNewsItem News="@news" />
                 }
             }
         </div>

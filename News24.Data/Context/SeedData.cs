@@ -52,7 +52,7 @@ internal static class SeedData
 
         //set user password
         PasswordHasher<IdentityUser> ph = new PasswordHasher<IdentityUser>();
-        appUser.PasswordHash = ph.HashPassword(appUser, "Admin123!");
+        appUser.PasswordHash = ph.HashPassword(appUser, "Admin1!");
 
         //seed user
         builder.Entity<IdentityUser>().HasData(appUser);

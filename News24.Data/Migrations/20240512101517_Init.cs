@@ -118,8 +118,8 @@ namespace News24.Data.Migrations
                 name: "AspNetUserLogins",
                 columns: table => new
                 {
-                    LoginProvider = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
-                    ProviderKey = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
+                    LoginProvider = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ProviderKey = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     ProviderDisplayName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
@@ -163,8 +163,8 @@ namespace News24.Data.Migrations
                 columns: table => new
                 {
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    LoginProvider = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
+                    LoginProvider = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Value = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
@@ -183,15 +183,15 @@ namespace News24.Data.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "2d13c85c-0c08-4cac-b7a9-8ab67ef92833", "2d13c85c-0c08-4cac-b7a9-8ab67ef92833", "Customer", "CUSTOMER" },
+                    { "0c30ee7c-e91f-4c57-bdc2-9df10a09b618", "0c30ee7c-e91f-4c57-bdc2-9df10a09b618", "Employee", "EMPLOYEE" },
                     { "7c9e6679-7425-40de-944b-e07fc1f90ae7", "7c9e6679-7425-40de-944b-e07fc1f90ae7", "Admin", "ADMIN" },
-                    { "a17c8b7b-c6ae-4953-be20-af074b0ec512", "a17c8b7b-c6ae-4953-be20-af074b0ec512", "Employee", "EMPLOYEE" }
+                    { "f18a78f4-d04b-4db4-9bf8-562ee5657057", "f18a78f4-d04b-4db4-9bf8-562ee5657057", "Customer", "CUSTOMER" }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "0f8fad5b-d9cb-469f-a165-70867728950e", 0, "a04c6c2f-d7ce-48ec-ae00-8d3b36949bab", "admin@gmail.com", true, false, null, "ADMIN@GMAIL.COM", "ADMIN@GMAIL.COM", "AQAAAAIAAYagAAAAEGbU9FL/ijFhTHTe7g+52qvQRF3/tJaEy6j3ZTkh/7S+rPtcyR0Pp8PSkiHgJ67mug==", null, false, "1f73075c-d169-4a6e-a391-cc042811c87f", false, "admin@gmail.com" });
+                values: new object[] { "0f8fad5b-d9cb-469f-a165-70867728950e", 0, "764a52b5-c757-4f66-a1ed-7625d0476822", "admin@gmail.com", true, false, null, "ADMIN@GMAIL.COM", "ADMIN@GMAIL.COM", "AQAAAAIAAYagAAAAEP3vSxRYpUKuj439zrIu8tWxflfr7sHPlbgmubpKkOl9A+mRH8xCYw2vKJE4jodw5g==", null, false, "27f87ae3-667f-4b28-87c0-52b056e919de", false, "admin@gmail.com" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
