@@ -3,11 +3,13 @@
         <Found Context="routeData">
             <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)">
                 <NotAuthorized>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="alert alert-warning">
-                                    <p>شما به این صفحه دسترسی ندارید</p>
+                    <div class="single_post">
+                        <div class="container-fluid">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-8">
+                                <div class="post_content not_found text-center alert alert-warning">
+                                    <span>401</span>
+                                    <p>شما به این صفحه دسترسی ندارید !</p>
                                 </div>
                             </div>
                         </div>
