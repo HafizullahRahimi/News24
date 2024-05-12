@@ -13,6 +13,7 @@ public class ApplicationDbContext : IdentityDbContext<IdentityUser>
     {
 
         builder.IdentitySeed();
+        builder.NewsSeed();
 
         base.OnModelCreating(builder);
     }
