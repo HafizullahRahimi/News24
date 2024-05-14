@@ -1,7 +1,8 @@
-﻿@using News24.Business.Repository.IRepository
+﻿@using News24.Business.Services
+@using News24.Business.Services.IndexPageService
 @using News24.DTOs.Newses
 @inject IJSRuntime JsRuntime
-@inject INewsRepository NewsRepository
+@inject IIndexPageService IndexPageService
 
 @page "/"
 <PageTitle>News24 </PageTitle>
@@ -53,9 +54,9 @@
 
     protected override async Task OnInitializedAsync()
     {
-        Newses = await NewsRepository.GetAllNewsesByCount(8);
-        SliderItems = await NewsRepository.GetAllNewsesByCount(2);
-        Imgs = await NewsRepository.GetAllNewsesByCount(4);
+        Newses = await IndexPageService.GetLatestNews();
+        SliderItems = await IndexPageService.GetSliderItems();
+        Imgs = await IndexPageService.GetImgs();
     }
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
