@@ -62,7 +62,7 @@ public class NewsRepository : INewsRepository
     {
         try
         {
-            NewsDTO news = _mapper.Map<News, NewsDTO>(await _context.Newses.SingleOrDefaultAsync(s => s.NewsId == newsId));
+            var news = _mapper.Map<News, NewsDTO>(await _context.Newses.SingleOrDefaultAsync(s => s.NewsId == newsId));
             return news;
         }
         catch (Exception e)

@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using News24.Business.Repository;
 using News24.Business.Repository.IRepository;
 using News24.Business.Services.IndexPageService;
+using News24.Business.Services.NewsDetail;
 using News24.Data.Context;
 using News24.Web.Service.FileUploadService;
 
@@ -25,6 +26,7 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddScoped<INewsRepository, NewsRepository>();
 builder.Services.AddScoped<IFileUploadService, FileUploadService>();
 builder.Services.AddScoped<IIndexPageService, IndexPageService>();
+builder.Services.AddScoped<INewsDetailService, NewsDetailService>();
 
 var app = builder.Build();
 

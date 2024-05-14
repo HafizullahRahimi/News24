@@ -1,8 +1,9 @@
-﻿@page "/newses/{Id:int}"
-@using News24.Business.Repository.IRepository
+﻿@using News24.Business.Services.NewsDetail
 @using News24.DTOs.Newses
 @using System.Globalization
-@inject INewsRepository NewsRepository
+@inject INewsDetailService NewsDetailService
+
+@page "/newses/{Id:int}"
 
 @if (NewsDto != null)
 {
@@ -22,7 +23,7 @@
                 <div class="posts_meta text-center">
                     <span><i class="fa fa-comment-o"></i> 25 نظر</span>
                     <span><i class="fa fa-archive"></i> اقتصادی</span>
-                    <span><i class="fa fa-calendar"></i> @NewsDto.CreateDate.ToShamsi()</span>
+                    <span><i class="fa fa-calendar"></i> @NewsDto.CreateDate</span>
                 </div>
                 <div class="post_content">
                     <h4>| عنوان مطلب در این قسمت</h4>
@@ -41,11 +42,11 @@
     [Parameter]
     public int? Id { get; set; }
 
-    public NewsDTO NewsDto { get; set; }
+    public DisplayNewsDTO? NewsDto { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
-        NewsDto = await NewsRepository.GetNewsById(Id.Value);
+        NewsDto = await NewsDetailService.GetNewsById(Id.Value);
     }
 
 }
