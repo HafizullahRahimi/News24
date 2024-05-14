@@ -1,14 +1,18 @@
-﻿@page "/"
-<PageTitle>News24 </PageTitle>
+﻿@using News24.Business.Repository.IRepository
+@using News24.DTOs.Newses
 @inject IJSRuntime JsRuntime
+@inject INewsRepository NewsRepository
+
+@page "/"
+<PageTitle>News24 </PageTitle>
 
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-3">           
-            <Images />
+            <Images Imgs="@Imgs" />
         </div>
         <div class="col-md-6">
-            <MainSlider />
+            <MainSlider SliderItems="@SliderItems" />
         </div>
         <div class="col-md-3">
             <Notes />
@@ -38,11 +42,21 @@
         </div>
     </div>
     <div class="clear-fix"></div>
-    <LatestNews />
+    <LatestNews Newses="@Newses" />
 </div>
 
 
 @code {
+    private IEnumerable<NewsDTO> Newses { get; set; } = new List<NewsDTO>();
+    private IEnumerable<NewsDTO> SliderItems { get; set; } = new List<NewsDTO>();
+    private IEnumerable<NewsDTO> Imgs { get; set; } = new List<NewsDTO>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        Newses = await NewsRepository.GetAllNewsesByCount(8);
+        SliderItems = await NewsRepository.GetAllNewsesByCount(2);
+        Imgs = await NewsRepository.GetAllNewsesByCount(4);
+    }
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         await JsRuntime.InvokeVoidAsync("OnDocumentInit");

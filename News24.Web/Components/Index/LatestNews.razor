@@ -1,6 +1,4 @@
-﻿@using News24.Business.Repository.IRepository
-@using News24.DTOs.Newses
-@inject INewsRepository NewsRepository
+﻿@using News24.DTOs.Newses
 
 <div class="latest-posts">
     <div class="container-fluid">
@@ -19,11 +17,7 @@
 
 @code
 {
-
-    private IEnumerable<NewsDTO> Newses { get; set; } = new List<NewsDTO>();
-
-    protected override async Task OnInitializedAsync()
-    {
-        Newses = await NewsRepository.GetAllNewsesByCount(8);
-    }
+    [Parameter]
+    public IEnumerable<NewsDTO> Newses { get; set; }
+ 
 }
