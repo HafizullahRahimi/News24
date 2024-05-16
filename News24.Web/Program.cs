@@ -22,7 +22,8 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(options => options.Sign
     .AddDefaultTokenProviders()
     .AddDefaultUI();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-// Repositories
+
+// Repositories and Services
 builder.Services.AddScoped<INewsRepository, NewsRepository>();
 builder.Services.AddScoped<IFileUploadService, FileUploadService>();
 builder.Services.AddScoped<IIndexPageService, IndexPageService>();
