@@ -1,0 +1,30 @@
+﻿<div class="main-header bg-info">
+    <div class="container ">
+        <div class="col-md-10">
+            <div class="main-menu">
+                <ul>
+                    <li><a href="/">  خانه  </a></li>
+                    <AuthorizeView>
+                        <Authorized>
+                            <li>
+                                @context.User.Identity.Name
+                            </li>
+                        </Authorized>
+
+                    </AuthorizeView>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="main-menu">
+                <ul>
+                    <li>
+                        <NavLink href="Identity/Account/Logout">
+                            خروج
+                        </NavLink>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

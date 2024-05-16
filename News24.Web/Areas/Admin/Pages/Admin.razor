@@ -1,6 +1,4 @@
-﻿@page "/admin"
-<PageTitle> پنل مدیریت</PageTitle>
-@using News24.Common
+﻿@using News24.Common
 @using News24.Business.Repository.IRepository
 @using News24.DTOs.Newses
 @using News24.Web.Service.FileUploadService
@@ -8,6 +6,10 @@
 @inject IJSRuntime JsRuntime
 @inject IFileUploadService FileUploadService
 @attribute [Authorize(Roles = StaticDetail.Role_Admin)]
+
+@page "/admin"
+@layout AdminLayout
+<PageTitle> پنل مدیریت</PageTitle>
 
 <div class="container">
     <div class="row">

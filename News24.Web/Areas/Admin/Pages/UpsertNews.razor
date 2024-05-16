@@ -1,8 +1,4 @@
-﻿@page "/admin/add-news"
-@page "/admin/edit-news/{Id:int}"
-<PageTitle>@Title خبر </PageTitle>
-
-@using News24.DTOs.Newses
+﻿@using News24.DTOs.Newses
 @using News24.Business.Repository.IRepository
 @using News24.Data.Entities.NewsEntities
 @using System.IO
@@ -12,6 +8,10 @@
 @inject IJSRuntime JsRuntime
 @inject IFileUploadService FileUploadService
 
+@page "/admin/add-news"
+@page "/admin/edit-news/{Id:int}"
+@layout AdminLayout
+<PageTitle>@Title خبر </PageTitle>
 
 <div class="container">
     <div class="row">
