@@ -6,6 +6,7 @@
 @inject IJSRuntime JsRuntime
 @inject IFileUploadService FileUploadService
 @attribute [Authorize(Roles = StaticDetail.Role_Admin)]
+@inject IJSRuntime JSRuntime
 
 @page "/admin"
 @layout AdminLayout
@@ -14,11 +15,14 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <NavLink href="admin/add-news" class="btn btn-info form-control">
-                ثبت خبر جدید
-            </NavLink>
+            <div class="add-news-btn">
+                <NavLink href="admin/add-news" class="btn btn-info form-control">
+                    ثبت خبر جدید
+                </NavLink>
+
+            </div>
             <div class="post_content">
-                <table class="table table-bordered table-hover">
+                <table class="table table-bordered table-hover" id="table">
                     <thead>
                         <tr>
                             <td>عنوان</td>
@@ -63,8 +67,7 @@
     </div>
 </div>
 
-<DeleteConfirmation IsParentComponentProcessing="IsProcessing" ConfirmationChanged="ConfirmDelete_Click"></DeleteConfirmation>
-
+<DeleteConfirmation IsParentComponentProcessing="IsProcessing" ConfirmationChanged="ConfirmDeleteClick"></DeleteConfirmation>
 
 @code {
     private IEnumerable<NewsDTO> Newses { get; set; } = new List<NewsDTO>();
@@ -88,7 +91,7 @@
         await JsRuntime.InvokeVoidAsync("showConfirmationModal");
     }
 
-    public async Task ConfirmDelete_Click(bool isConfirmed)
+    public async Task ConfirmDeleteClick(bool isConfirmed)
     {
         IsProcessing = true;
         if (isConfirmed && DeleteNewsId != null)
@@ -102,5 +105,10 @@
 
         await JsRuntime.InvokeVoidAsync("hideConfirmationModal");
         IsProcessing = false;
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await JSRuntime.InvokeVoidAsync("DataTables");
     }
 }

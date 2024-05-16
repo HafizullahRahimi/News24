@@ -59,3 +59,13 @@ function showConfirmationModal() {
 function hideConfirmationModal() {
     $('#confirmationModal').modal('hide');
 }
+
+function DataTables() {
+
+    $("#table").dataTable({
+        retrieve: true,
+        paging: false,
+        searching: false,
+        showing: false
+    });
+}

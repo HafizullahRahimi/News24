@@ -1280,3 +1280,7 @@ li:focus {
 .ck-content {
 	min-height: 300px;
 }
+
+.add-news-btn {
+	margin: 0 0 20Px 0;
+}
