@@ -1,0 +1,26 @@
+﻿<PageTitle>در حال بارگیری</PageTitle>
+
+@if (contentLoading)
+{
+    <div class="loading-box">
+        <p>وب سایت در حال بارگیری است ...</p>
+    </div>
+}
+else
+{
+    @ChildContent
+}
+
+@code {
+
+    bool contentLoading = true;
+
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        // await Task.Delay(3000);
+        contentLoading = false;
+    }
+}
