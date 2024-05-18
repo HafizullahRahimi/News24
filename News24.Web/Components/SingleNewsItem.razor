@@ -1,4 +1,5 @@
 ﻿@using News24.DTOs.Newses
+
 <div class="col-md-3">
     <div class="post-box">
          <NavLink href="@($"/newses/{News.NewsId}")">
@@ -28,7 +29,6 @@
 </div>
 
 @code {
-
     [Parameter]
     public NewsDTO News { get; set; }
 }

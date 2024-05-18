@@ -1,7 +1,6 @@
 ﻿using Microsoft.JSInterop;
 
 namespace News24.Web.Helpers;
-
 public static class IJsRuntimeExtension
 {
     public static async ValueTask ToastrSuccess(this IJSRuntime jsRuntime, string message)

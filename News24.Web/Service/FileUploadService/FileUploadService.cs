@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components.Forms;
 
 namespace News24.Web.Service.FileUploadService;
-
 public class FileUploadService : IFileUploadService
 {
     private readonly IWebHostEnvironment _webHostEnvironment;
@@ -15,9 +14,7 @@ public class FileUploadService : IFileUploadService
     {
         try
         {
-            //FileInfo fileInfo = new FileInfo(file.Name);
-            //string fileName = Guid.NewGuid().ToString() + fileInfo.Extension; 
-            string fileName = $"{Guid.NewGuid()}-{file.Name}";
+            var fileName = $"{Guid.NewGuid()}-{file.Name}";
             var folderDirectory = $"{_webHostEnvironment.WebRootPath}\\images";
             var path = Path.Combine(_webHostEnvironment.WebRootPath, "images", fileName);
 

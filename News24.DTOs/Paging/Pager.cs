@@ -1,5 +1,4 @@
 ﻿namespace News24.DTOs.Paging;
-
 public class Pager
 {
     public static BasePaging Build(int page, int take, int allEntitiesCount, int howManyShowAfterBefore)

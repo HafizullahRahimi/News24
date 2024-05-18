@@ -70,12 +70,9 @@
 </div>
 
 @code {
-
     [Parameter]
     public int? Id { get; set; }
-
     public string Title { get; set; } = "افزودن";
-
     private NewsDTO NewsModel { get; set; } = new NewsDTO();
 
     [CascadingParameter]
@@ -90,16 +87,11 @@
             NavigationManager.NavigateTo($"/identity/account/login?returnUrl={uri.LocalPath}");
         }
 
-
         if (Id != null)
         {
             // update
             Title = "ویرایش";
             NewsModel = await NewsRepository.GetNewsById(Id.Value);
-        }
-        else
-        {
-            // create
         }
     }
 
@@ -118,7 +110,6 @@
             await JsRuntime.ToastrError(e.Message);
         }
     }
-
 
     private async Task HandleUpsertNews()
     {

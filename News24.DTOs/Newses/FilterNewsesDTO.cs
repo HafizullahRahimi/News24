@@ -1,13 +1,10 @@
 ﻿using News24.DTOs.Paging;
 
 namespace News24.DTOs.Newses;
-
 public class FilterNewsesDTO : BasePaging
 {
     public string Title { get; set; }
-
     public List<NewsDTO> Newses { get; set; }
-
     public FilterNewsesDTO SetPaging(BasePaging paging)
     {
         Page = paging.Page;

@@ -1,7 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
 namespace News24.DTOs.Newses;
-
 public class NewsDTO
 {
     public int NewsId { get; set; }
