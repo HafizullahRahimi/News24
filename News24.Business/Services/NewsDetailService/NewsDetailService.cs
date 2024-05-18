@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using News24.Business.Repository.IRepository;
+using News24.Business.Repository.NewsRepository.NewsRepository;
 using News24.DTOs.Newses;
 
-namespace News24.Business.Services.NewsDetail;
+namespace News24.Business.Services.NewsDetailService;
 public class NewsDetailService : INewsDetailService
 {
     private readonly INewsRepository _newsRepository;
@@ -10,7 +10,6 @@ public class NewsDetailService : INewsDetailService
 
     public NewsDetailService(INewsRepository NewsRepository, IMapper mapper)
     {
-
         _newsRepository = NewsRepository;
         _mapper = mapper;
     }

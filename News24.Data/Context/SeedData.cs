@@ -1,7 +1,7 @@
 ﻿using News24.Common;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using News24.Data.Entities.NewsEntities;
+using News24.Data.Entities;
 
 namespace News24.Data.Context;
 

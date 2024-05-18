@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace News24.Data.Entities.NewsEntities;
+namespace News24.Data.Entities;
 
 public class News
 {

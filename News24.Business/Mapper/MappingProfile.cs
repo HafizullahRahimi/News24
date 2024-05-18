@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using News24.Business.Extension;
-using News24.Data.Entities.NewsEntities;
+using News24.Data.Entities;
 using News24.DTOs.Newses;
 
 namespace News24.Business.Mapper;

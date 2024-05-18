@@ -310,7 +310,7 @@ namespace News24.Data.Migrations
 
                     b.HasKey("NewsId");
 
-                    b.ToTable("Newses");
+                    b.ToTable("Newses", (string)null);
 
                     b.HasData(
                         new

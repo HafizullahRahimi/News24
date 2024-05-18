@@ -1,4 +1,4 @@
-﻿using News24.Business.Repository.IRepository;
+﻿using News24.Business.Repository.NewsRepository.NewsRepository;
 using News24.DTOs.Newses;
 
 namespace News24.Business.Services.IndexPageService;

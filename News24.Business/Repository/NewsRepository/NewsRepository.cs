@@ -1,17 +1,13 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
-using News24.Business.Repository.IRepository;
 using News24.Data.Context;
-using News24.Data.Entities.NewsEntities;
+using News24.Data.Entities;
 using News24.DTOs.Newses;
 using News24.DTOs.Paging;
 
-namespace News24.Business.Repository;
-
+namespace News24.Business.Repository.NewsRepository.NewsRepository;
 public class NewsRepository : INewsRepository
 {
-    #region constructor
-
     private readonly ApplicationDbContext _context;
     private readonly IMapper _mapper;
 
@@ -20,9 +16,6 @@ public class NewsRepository : INewsRepository
         _context = context;
         _mapper = mapper;
     }
-
-    #endregion
-
 
     public async Task<NewsDTO> CreateNews(NewsDTO newsDTO)
     {
@@ -40,8 +33,8 @@ public class NewsRepository : INewsRepository
         {
             if (newsId == newsDTO.NewsId)
             {
-                News newsDetail = await _context.Newses.FindAsync(newsId);
-                News news = _mapper.Map<NewsDTO, News>(newsDTO, newsDetail);
+                var newsDetail = await _context.Newses.FindAsync(newsId);
+                var news = _mapper.Map<NewsDTO, News>(newsDTO, newsDetail);
                 news.EditedBy = "";
                 _context.Newses.Update(news);
                 await _context.SaveChangesAsync();
@@ -75,7 +68,7 @@ public class NewsRepository : INewsRepository
     {
         try
         {
-            IEnumerable<NewsDTO> newsDTOs = _mapper.Map<IEnumerable<News>, IEnumerable<NewsDTO>>(await _context.Newses.ToListAsync());
+            var newsDTOs = _mapper.Map<IEnumerable<News>, IEnumerable<NewsDTO>>(await _context.Newses.ToListAsync());
             return newsDTOs;
         }
         catch (Exception e)
@@ -102,10 +95,8 @@ public class NewsRepository : INewsRepository
         }
     }
 
-    public async Task<NewsDTO> IsNewsExistsByTitle(string title, int newsId)
-    {
-        return _mapper.Map<News, NewsDTO>(await _context.Newses.FirstOrDefaultAsync(s => s.Title == title && s.NewsId != newsId));
-    }
+    public async Task<NewsDTO> IsNewsExistsByTitle(string title, int newsId) =>
+        _mapper.Map<News, NewsDTO>(await _context.Newses.FirstOrDefaultAsync(s => s.Title == title && s.NewsId != newsId));
 
     public async Task<int> RemoveNews(int newsId)
     {
@@ -121,10 +112,8 @@ public class NewsRepository : INewsRepository
         return 0;
     }
 
-    public async Task<int> RemoveNews(NewsDTO news)
-    {
-        return await RemoveNews(news.NewsId);
-    }
+    public async Task<int> RemoveNews(NewsDTO news) => 
+        await RemoveNews(news.NewsId);
 
     public async Task<FilterNewsesDTO> FilterNewses(FilterNewsesDTO filter)
     {

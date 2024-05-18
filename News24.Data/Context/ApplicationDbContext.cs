@@ -1,7 +1,7 @@
-﻿using News24.Data.Entities.NewsEntities;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using News24.Data.Entities;
 
 namespace News24.Data.Context;
 public class ApplicationDbContext : IdentityDbContext<IdentityUser>
