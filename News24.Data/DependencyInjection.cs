@@ -5,9 +5,9 @@ using Microsoft.Extensions.DependencyInjection;
 using News24.Data.Context;
 
 namespace News24.Data;
-public static class DataConfig
+public static class DependencyInjection
 {
-    public static IServiceCollection AddDataConfig(this IServiceCollection services, IConfiguration configuration)
+    public static IServiceCollection AddData(this IServiceCollection services, IConfiguration configuration)
     {
         var connectionString = configuration
             .GetConnectionString("DefaultConnection") ??

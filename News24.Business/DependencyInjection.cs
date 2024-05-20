@@ -4,9 +4,9 @@ using News24.Business.Services.IndexPageService;
 using News24.Business.Services.NewsDetailService;
 
 namespace News24.Business;
-public static class BusinessConfig
+public static class DependencyInjection
 {
-    public static IServiceCollection AddBusinessConfig(this IServiceCollection services)
+    public static IServiceCollection AddBusiness(this IServiceCollection services)
     {
         // Repositories
         services.AddScoped<INewsRepository, NewsRepository>();

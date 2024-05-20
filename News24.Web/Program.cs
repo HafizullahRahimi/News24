@@ -7,8 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 
-builder.Services.AddDataConfig(builder.Configuration);
-builder.Services.AddBusinessConfig();
+builder.Services.AddData(builder.Configuration);
+builder.Services.AddBusiness();
 
 builder.Services.AddScoped<IFileUploadService, FileUploadService>();
 
