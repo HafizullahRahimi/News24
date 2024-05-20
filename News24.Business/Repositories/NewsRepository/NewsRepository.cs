@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
+using News24.Business.Common.Paging;
+using News24.Business.DTOs.Newses;
 using News24.Data.Context;
 using News24.Data.Entities;
-using News24.DTOs.Newses;
-using News24.DTOs.Paging;
 
-namespace News24.Business.Repository.NewsRepository.NewsRepository;
+namespace News24.Business.Repositories.NewsRepository;
 public class NewsRepository : INewsRepository
 {
     private readonly ApplicationDbContext _context;
@@ -112,7 +112,7 @@ public class NewsRepository : INewsRepository
         return 0;
     }
 
-    public async Task<int> RemoveNews(NewsDTO news) => 
+    public async Task<int> RemoveNews(NewsDTO news) =>
         await RemoveNews(news.NewsId);
 
     public async Task<FilterNewsesDTO> FilterNewses(FilterNewsesDTO filter)

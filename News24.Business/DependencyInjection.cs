@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using News24.Business.Repository.NewsRepository.NewsRepository;
+using News24.Business.Repositories.NewsRepository;
 using News24.Business.Services.IndexPageService;
 using News24.Business.Services.NewsDetailService;
 

@@ -13,7 +13,10 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\News24.Data\News24.Data.csproj" />
-		<ProjectReference Include="..\News24.DTOs\News24.DTOs.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="DTOs\" />
 	</ItemGroup>
 
 </Project>

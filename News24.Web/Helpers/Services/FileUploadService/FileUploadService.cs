@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components.Forms;
 
-namespace News24.Web.Service.FileUploadService;
+namespace News24.Web.Helpers.Services.FileUploadService;
 public class FileUploadService : IFileUploadService
 {
     private readonly IWebHostEnvironment _webHostEnvironment;

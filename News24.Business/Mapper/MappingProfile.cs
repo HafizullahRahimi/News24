@@ -1,7 +1,8 @@
 ﻿using AutoMapper;
-using News24.Business.Extension;
+using News24.Business.Common.Extension;
+using News24.Business.DTOs.Newses;
 using News24.Data.Entities;
-using News24.DTOs.Newses;
+
 
 namespace News24.Business.Mapper;
 public class MappingProfile : Profile

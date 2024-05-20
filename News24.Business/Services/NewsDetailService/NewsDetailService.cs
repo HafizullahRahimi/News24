@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using News24.Business.Repository.NewsRepository.NewsRepository;
-using News24.DTOs.Newses;
+using News24.Business.DTOs.Newses;
+using News24.Business.Repositories.NewsRepository;
 
 namespace News24.Business.Services.NewsDetailService;
 public class NewsDetailService : INewsDetailService

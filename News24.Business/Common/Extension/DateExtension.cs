@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 
-namespace News24.Business.Extension;
+namespace News24.Business.Common.Extension;
 public static class DateExtension
 {
     public static string ToShamsi(this DateTime dateTime)

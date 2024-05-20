@@ -1,6 +1,6 @@
 using News24.Business;
 using News24.Data;
-using News24.Web.Service.FileUploadService;
+using News24.Web.Helpers.Services.FileUploadService;
 
 var builder = WebApplication.CreateBuilder(args);
 

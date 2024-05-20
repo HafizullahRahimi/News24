@@ -1,4 +1,4 @@
-﻿using News24.DTOs.Newses;
+﻿using News24.Business.DTOs.Newses;
 
 namespace News24.Business.Services.IndexPageService;
 public interface IIndexPageService

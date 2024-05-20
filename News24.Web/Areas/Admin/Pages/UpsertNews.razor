@@ -1,7 +1,8 @@
-﻿@using News24.Business.Repository.NewsRepository.NewsRepository
-@using News24.DTOs.Newses
+﻿@using News24.Business.Repositories.NewsRepository
+@using News24.Business.DTOs.Newses
 @using System.IO
-@using News24.Web.Service.FileUploadService
+@using News24.Web.Helpers.Extensions
+@using News24.Web.Helpers.Services.FileUploadService
 @inject INewsRepository NewsRepository
 @inject NavigationManager NavigationManager
 @inject IJSRuntime JsRuntime

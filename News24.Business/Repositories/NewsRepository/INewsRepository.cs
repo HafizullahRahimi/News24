@@ -1,6 +1,6 @@
-﻿using News24.DTOs.Newses;
+﻿using News24.Business.DTOs.Newses;
 
-namespace News24.Business.Repository.NewsRepository.NewsRepository;
+namespace News24.Business.Repositories.NewsRepository;
 
 public interface INewsRepository
 {

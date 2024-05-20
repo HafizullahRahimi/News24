@@ -1,5 +1,5 @@
-﻿using News24.Business.Repository.NewsRepository.NewsRepository;
-using News24.DTOs.Newses;
+﻿using News24.Business.DTOs.Newses;
+using News24.Business.Repositories.NewsRepository;
 
 namespace News24.Business.Services.IndexPageService;
 public class IndexPageService : IIndexPageService
