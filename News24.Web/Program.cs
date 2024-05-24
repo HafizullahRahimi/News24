@@ -4,11 +4,12 @@ using News24.Web.Helpers.Services.FileUploadService;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddData(builder.Configuration);
+builder.Services.AddBusiness();
+
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 
-builder.Services.AddData(builder.Configuration);
-builder.Services.AddBusiness();
 
 builder.Services.AddScoped<IFileUploadService, FileUploadService>();
 

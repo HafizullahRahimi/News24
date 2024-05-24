@@ -1,7 +1,7 @@
 ﻿@using News24.Business.Services
 @using News24.Business.Services.IndexPageService
 @using News24.Business.DTOs.Newses
-@inject IJSRuntime JsRuntime
+
 @inject IIndexPageService IndexPageService
 
 @page "/"
@@ -10,10 +10,10 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-3">           
-            <Images Imgs="@Imgs" />
+            <Images />
         </div>
         <div class="col-md-6">
-            <MainSlider SliderItems="@SliderItems" />
+            <MainSlider />
         </div>
         <div class="col-md-3">
             <Notes />
@@ -43,23 +43,5 @@
         </div>
     </div>
     <div class="clear-fix"></div>
-    <LatestNews Newses="@Newses" />
+    <LatestNews />
 </div>
-
-
-@code {
-    private IEnumerable<NewsDTO> Newses { get; set; } = new List<NewsDTO>();
-    private IEnumerable<NewsDTO> SliderItems { get; set; } = new List<NewsDTO>();
-    private IEnumerable<NewsDTO> Imgs { get; set; } = new List<NewsDTO>();
-
-    protected override async Task OnInitializedAsync()
-    {
-        Newses = await IndexPageService.GetLatestNews();
-        SliderItems = await IndexPageService.GetSliderItems();
-        Imgs = await IndexPageService.GetImgs();
-    }
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        await JsRuntime.InvokeVoidAsync("OnDocumentInit");
-    }
-}

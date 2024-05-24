@@ -1,7 +1,12 @@
 ﻿@using News24.Business.DTOs.Newses
+@using News24.Business.Services.MainSliderService
+@inject IMainSliderService MainSliderService
+@inject IJSRuntime JsRuntime
 
 <div class="main-slider-box">
     <div class="owl-carousel owl-theme main-slider">
+        @if (SliderItems != null && SliderItems.Any())
+    {
         @foreach (var item in SliderItems)
         {
             <div class="item">
@@ -17,11 +22,21 @@
                 </figure>
             </div>
         }
+        }
     </div>
 </div>
 
 @code
 {
-    [Parameter]
     public IEnumerable<NewsDTO> SliderItems { get; set; } = new List<NewsDTO>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        SliderItems = await MainSliderService.GetSliderItems();
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await JsRuntime.InvokeVoidAsync("OnDocumentInit");
+    }
 }

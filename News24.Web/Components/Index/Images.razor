@@ -1,41 +1,51 @@
 ﻿@using News24.Business.DTOs.Newses
+@using News24.Business.Services.ImagesService
+@inject IImagesService ImagesService
 
 <div class="top-sidebar-r">
     <span class="title">عکس</span>
 
-
-    @foreach (var img in Imgs)
+    @if (Imgs != null && Imgs.Any())
     {
-        <a href="#">
-            <div class="bx">
-                <div class="col-md-6">
-                    <div class="img-box">
-                        <figure>
-                            <img src="/images/@img.ImageName" alt="">
-                            <figcaption><span>@{Count++;} @Count</span></figcaption>
-                        </figure>
+        @foreach (var img in Imgs)
+        {
+            <a href="#">
+                <div class="bx">
+                    <div class="col-md-6">
+                        <div class="img-box">
+                            <figure>
+                                <img src="/images/@img.ImageName" alt="">
+                                <figcaption><span>@{
+                                            Count++;
+                                        } @Count</span></figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                    <div class="col-md-6 ">
+                        <div class="meta">
+                            <h5>
+                                @img.Title
+                            </h5>
+                            <span><i class="fa fa-clock-o"></i> @img.CreateDate.ToShamsi()</span>
+                            @*  <div class="text-left">
+                    <sub><i class="fa fa-comment"></i> 246</sub>
+                    </div> *@
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-6 ">
-                    <div class="meta">
-                        <h5>
-                            @img.Title
-                        </h5>
-                        <span><i class="fa fa-clock-o"></i> @img.CreateDate.ToShamsi()</span>
-                       @*  <div class="text-left">
-                            <sub><i class="fa fa-comment"></i> 246</sub>
-                        </div> *@
-                    </div>
-                </div>
-            </div>
-        </a>
+            </a>
+        }
     }
 
 </div>
 
 @code
 {
-    [Parameter]
     public IEnumerable<NewsDTO> Imgs { get; set; } = new List<NewsDTO>();
     private int Count { get; set; } = 0;
+
+    protected override async Task OnInitializedAsync()
+    {
+        Imgs = await ImagesService.GetImgs();
+    }
 }

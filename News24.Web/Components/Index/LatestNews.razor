@@ -1,5 +1,6 @@
 ﻿@using News24.Business.DTOs.Newses
-
+@using News24.Business.Services.LatestNewsService
+@inject ILatestNewsService LatestNewsService
 <div class="latest-posts">
     <div class="container-fluid">
         <div class="blog-title-span">
@@ -17,6 +18,10 @@
 
 @code
 {
-    [Parameter]
     public IEnumerable<NewsDTO> Newses { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Newses = await LatestNewsService.GetLatestNews();
+    }
 }
